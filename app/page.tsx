@@ -9,31 +9,32 @@ import React from "react";
 export default function Home() {
   return (
     <div>
-      <div>
-
+      <div className="flex ml-8 mt-8">
+        <Icon
+            icon="ic:round-close"
+            className="text-3xl"
+          />
       </div>
-      <div>
-        <Icon
-          icon="ic:round-close"
-          className="text-black"
-        />
-        <Icon
+      <div className="flex items-center gap-4 justify-center">
+        {/* <Icon
           icon="solar:arrow-left-outline"
-          className="text-black"
-        />
-        <h1>2/4/10</h1>
-        <p>5:38 PM</p>
-        <Icon
+          className="text-2xl"
+        /> */}
+        <div className="flex gap-2 items-end">
+          <h1 className="text-3xl">2/4/10</h1>
+          <p className="text-xs">5:38 PM</p>
+        </div>
+        {/* <Icon
           icon="solar:arrow-right-outline"
-          className="text-black"
-        />
+          className="text-2xl"
+        /> */}
       </div>
       <div>
         <Image
           src="/example.jpg"
           alt="example"
           height={400}
-          width={400}
+          width={600}
         />
         <div>
           <p>What does this sign say?</p>
