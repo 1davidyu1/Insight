@@ -1,5 +1,4 @@
 // needs to be dynamic
-
 'use client'
 
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -8,41 +7,37 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="">
-      <div className="flex ml-8 mt-8">
-        <Icon
-            icon="ic:round-close"
-            className="text-3xl"
-          />
-      </div>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="flex items-center gap-4 justify-center ">
-          {/* <Icon
-            icon="solar:arrow-left-outline"
-            className="text-2xl"
-          /> */}
-          <div className="flex flex-col items-center gap-4">
-            <h1 className="text-3xl">2/4/10</h1>
-            <p className="text-xs">5:38 PM</p>
-          </div>
-          {/* <Icon
-            icon="solar:arrow-right-outline"
-            className="text-2xl"
-          /> */}
+    <div className="items-center justify-center flex flex-col mt-36">
+      <h1 className="text-4xl mb-8 font-thin w-4/5 md:w-3/5 lg:w-2/5 text-center font-serif leading-[3rem]">Capture your moments, discover what awaits for you.</h1>
+      <div className="border-[.5px] border-neutral-700 shadow-xs shadow-neutral-700 bg-neutral-900 rounded-xl flex p-2 items-center gap-2 hover:bg-neutral-800">
+        <div className="border-[.5px] border-neutral-700 shadow-xs shadow-neutral-700 bg-neutral-900 rounded-lg">
+          <p className="px-2 py-1 text-xs font-light">
+            8
+          </p>
         </div>
-        <div className="my-24 mb-60 flex lg:mx-8 gap-8 justify-center items-center">
+        <p className="text-sm font-light">
+          Street Names
+        </p>
+      </div>
+      <div 
+      className="border-[.5px] border-neutral-700 shadow-xs shadow-neutral-700 bg-neutral-900 hover:bg-neutral-800 rounded-xl flex justify-between items-center mt-8 flex-row w-4/5 md:w-3/5 lg:w-2/5"
+      onClick={() => {}}
+      >
+        <div className="flex p-2">
           <Image
             src="/example.jpg"
             alt="example"
-            height={600}
-            width={800}
+            height={700}
+            width={50}
             className="rounded-md"
           />
-          <div className="text-center ">
-            <p className="mb-4">What does this sign say?</p>
-            <h3 className="text-2xl lg:mx-20 mx-0">Given the information you've provided, your</h3>
-          </div>
+          <h3 className="px-3 py-2 text-md">
+            What does this sign say? 
+          </h3>
         </div>
+        <p className="mr-3 text-md">
+          12/4/10
+        </p>
       </div>
     </div>
   )
