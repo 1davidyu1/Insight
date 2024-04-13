@@ -3,14 +3,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import type { ImageProps } from "../types/";
 import { db, collection, getDocs } from '../db/firebase';
 
-
-
-const Page = ({ images }: { images: ImageProps[] }) => {
+const Page = () => {
   const [chats, setChats] = useState<any[]>([]);
 
   useEffect(() => {
@@ -69,8 +65,7 @@ const Page = ({ images }: { images: ImageProps[] }) => {
             <Link
               key={id}
               href={`/?photoId=${id}`}
-              as={`/p/${id}`}
-              shallow
+              // shallow
               className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             >
               
@@ -78,8 +73,6 @@ const Page = ({ images }: { images: ImageProps[] }) => {
                 alt={`${prompt}`}
                 className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
                 style={{ transform: "translate3d(0, 0, 0)" }}
-                // placeholder="blur"
-                // blurDataURL={blurDataUrl}
                 src={`${image_file}`}
                 width={720}
                 height={480}
