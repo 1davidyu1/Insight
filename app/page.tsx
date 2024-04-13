@@ -29,16 +29,17 @@ export default function Home() {
           className="text-2xl"
         /> */}
       </div>
-      <div>
+      <div className="my-24 flex mx-8 gap-8 justify-center items-center">
         <Image
           src="/example.jpg"
           alt="example"
-          height={400}
-          width={600}
+          height={600}
+          width={800}
+          className="rounded-md"
         />
-        <div>
-          <p>What does this sign say?</p>
-          <h3>Given the information you've provided, your</h3>
+        <div className="text-center ">
+          <p className="mb-4">What does this sign say?</p>
+          <h3 className="text-2xl lg:mx-20 mx-0">Given the information you've provided, your</h3>
         </div>
       </div>
     </div>
