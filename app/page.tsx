@@ -30,7 +30,7 @@ export default function Home() {
             className="text-2xl"
           /> */}
         </div>
-        <div className="my-24 mb-48 flex mx-8 gap-8 justify-center items-center">
+        <div className="my-24 mb-60 flex lg:mx-8 gap-8 justify-center items-center">
           <Image
             src="/example.jpg"
             alt="example"
