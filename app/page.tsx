@@ -70,7 +70,10 @@ const Page = () => {
             </a>
             </>
           </div>
-          {chats.map(({ created_at, image_url, input_prompt, output_response }, index) => (
+          {chats
+  .slice() // Create a shallow copy to prevent modifying the original array
+  .sort((a, b) => b.created_at - a.created_at) // Sort chats in descending order
+  .map(({ created_at, image_url, input_prompt, output_response }, index) => (
           <CardContainer key={created_at}>
             <div 
               className="hover:transition-all transition delay-150 p-3 rounded-lg group relative mb-5 block w-full "
