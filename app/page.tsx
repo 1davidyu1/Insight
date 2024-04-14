@@ -35,12 +35,12 @@ const Page = () => {
       <Head>
         <title>Insight</title>
       </Head>
-      <main className="mx-auto max-w-[1960px] p-4">
+      <main className="mx-auto max-w-[1960px] px-4 pt-4">
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          <CardContainer className="bg-gradient-to-r from-neutral-900 from-10% neutral-600 via-30% to-neutral-800 to-90% after:content relative mb-5 flex h-[565px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0">
+          <div className="bg-gradient-to-r from-neutral-900 from-10% neutral-600 via-30% to-neutral-800 to-90% after:content relative mb-5 flex h-[565px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0">
             <>
             <div className="absolute inset-0 flex items-center justify-center opacity-20">
-              <span className="flex max-h-full max-w-full items-center justify-center mb-36">
+              <span className="flex max-h-full max-w-full items-center justify-center mb-32">
                 <Image 
                   src="./SmarterGlass.svg"
                   alt="Smart Glasses"
@@ -68,7 +68,7 @@ const Page = () => {
               View our Demo
             </a>
             </>
-          </CardContainer>
+          </div>
           {chats.map(({ created_at, image_url, input_prompt, output_response }, index) => (
             <CardContainer>
           <div 
@@ -127,7 +127,7 @@ const Page = () => {
 
         </div>
       </main>
-      <footer className="p-6 text-center text-white/80 sm:p-12">
+      <footer className="p-6 text-center text-white/80 sm:pb-12">
         Created by {" "}
         <a
           href="https://www.linkedin.com/in/david-yu-871202244/"
@@ -139,7 +139,7 @@ const Page = () => {
         </a>
         ,{" "}
         <a
-          href="https://www.linkedin.com/in/david-yu-871202244/"
+          href="https://www.linkedin.com/in/alexandra-enders/"
           target="_blank"
           className="font-semibold hover:text-white"
           rel="noreferrer"
@@ -148,7 +148,7 @@ const Page = () => {
         </a>
         , and{" "}
         <a
-          href="https://www.linkedin.com/in/david-yu-871202244/"
+          href="https://www.linkedin.com/in/advaitpaliwal/"
           target="_blank"
           className="font-semibold hover:text-white"
           rel="noreferrer"
