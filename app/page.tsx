@@ -73,7 +73,7 @@ const Page = () => {
           {chats.map(({ created_at, image_url, input_prompt, output_response }, index) => (
           <CardContainer key={created_at}>
             <div 
-              className="hover:transition-all transition delay-150 p-3 rounded-lg group relative mb-5 block w-full cursor-pointer"
+              className="hover:transition-all transition delay-150 p-3 rounded-lg group relative mb-5 block w-full "
               style={{
                 position: 'relative',
                 overflow: 'hidden',
