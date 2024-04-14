@@ -4,7 +4,7 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: 'https',
-          hostname: 'media.istockphoto.com', // Allows images from iStockphoto
+          hostname: 'storage.googleapis.com', // Allows images from iStockphoto
           port: '',
           pathname: '/**',
         },
