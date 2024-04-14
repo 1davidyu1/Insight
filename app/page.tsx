@@ -5,11 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { db, collection, getDocs } from '../db/firebase';
-import { BackgroundGradientAnimation } from "../components/ui/background-gradient-animation";
+import { TextGenerateEffect } from "../components/ui/text-generate-effect";
+import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
+
 
 
 const Page = () => {
   const [chats, setChats] = useState<any[]>([]);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const colRef = collection(db, 'data');
@@ -34,7 +37,7 @@ const Page = () => {
       </Head>
       <main className="mx-auto max-w-[1960px] p-4">
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          <div className="after:content relative mb-5 flex h-[565px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0">
+          <CardContainer className="bg-gradient-to-r from-neutral-900 from-10% neutral-600 via-30% to-neutral-800 to-90% after:content relative mb-5 flex h-[565px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0">
             <>
             <div className="absolute inset-0 flex items-center justify-center opacity-20">
               <span className="flex max-h-full max-w-full items-center justify-center mb-36">
@@ -47,10 +50,10 @@ const Page = () => {
               </span>
               <span className="absolute left-0 right-0 bottom-0 h-[400px] bg-gradient-to-b from-black/0 via-black to-black"></span>
             </div>
-            <h1 className="text-6xl font-semibold font-mono">
+            <h1 className="text-6xl font-light font-">
               Insight
             </h1>
-            <h1 className="mt-8 mb-4 text-base font-bold uppercase tracking-widest">
+            <h1 className="mt-4 text-base font-semibold uppercase tracking-widest">
               Capture your moments
             </h1>
             <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
@@ -65,14 +68,17 @@ const Page = () => {
               View our Demo
             </a>
             </>
-          </div>
+          </CardContainer>
           {chats.map(({ created_at, image_url, input_prompt, output_response }, index) => (
+            <CardContainer>
           <div 
-            className="hover:transition-all p-3 rounded-lg group relative mb-5 block w-full"
+            className="hover:transition-all transition delay-150 p-3 rounded-lg group relative mb-5 block w-full"
             style={{
               position: 'relative',
               overflow: 'hidden', // Ensure the pseudo-element doesn't exceed the div bounds
             }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -82,7 +88,7 @@ const Page = () => {
               }}
             ></div>
             <div className="absolute inset-0 backdrop-filter backdrop-blur-lg"></div>
-            <p className="line-clamp-1 text-center mb-2 text-neutral-400 group-hover:text-white z-10 relative">{input_prompt}</p>
+            <p className="line-clamp-1 text-center mb-2 text-neutral-200 group-hover:text-white z-10 relative">{input_prompt}</p>
             {image_url ? (
               <Image
                 alt={input_prompt}
@@ -105,21 +111,19 @@ const Page = () => {
                 className="rounded-lg"
               />
             )}
-            <p className="line-clamp-3 text-center mt-2 text-neutral-400 group-hover:text-white z-30 relative"
-              style={{
-                position: 'absolute',
-                bottom: '10%', // Adjust positioning to your liking
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '90%', // Ensures the text doesn't go edge to edge
-                backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background for readability
-                padding: '0.5em',
-                borderRadius: '10px'
-              }}>
-              {output_response}
-            </p>
+
+            <div 
+              className="absolute inset-0 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            > 
+              <div className="bg-black bg-opacity-50 rounded p-2 lg:mt-36">
+                <TextGenerateEffect words={output_response} isHovered={isHovered} className="line-clamp-3 text-center text-white z-30 relative p-2 bg-black bg-opacity-40 rounded-lg"/>
+              </div>
+            </div>
+
           </div>
+          </CardContainer>
         ))}
+
 
         </div>
       </main>
